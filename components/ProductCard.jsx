@@ -1,19 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function ProductCard({data}) {
-  const {title , images , description , price} = data;
+  const {title , image , description , price, id}  = data;
 
   return (
      <div className="relative p-3 h-79 w-66 bg-orange-500  rounded-lg shadow hover:shadow-lg transition">
       <div className="w-full h-48 overflow-hidden rounded">
         <img
           className="w-full h-full object-cover rounded hover:scale-105 transition-transform"
-          src={images}
+          src={image}
           alt={title}
         />
       </div>
       <div className="mt-3 text-white">
-        <h3 className="font-semibold line-clamp-1">{title}</h3>
+        <Link to={`/products/${id}`} className="font-semibold line-clamp-1">{title}</Link>
         <p className="text-xs text-gray-200 line-clamp-2">{description}</p>
         <h6 className="text-sm mt-1 font-bold"> $ {price}</h6>
       </div>
